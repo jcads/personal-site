@@ -1,5 +1,5 @@
-
 (function($) {
+
 
 	var	$window = $(window),
 		$body = $('body'),
@@ -122,3 +122,6 @@
 		});
 
 })(jQuery);
+ console.log("test")
+
+
