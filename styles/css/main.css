@@ -1,6 +1,5 @@
 @import url(fontawesome-all.min.css);
-@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 * {
 	margin: 0;
@@ -1710,7 +1709,7 @@ body {
 
 		#footer .copyright {
 			width: 100%;
-      margin-top: 1em;
+      margin: 0;
 			font-size: 0.8em;
 			text-align: center;
 		}
@@ -1728,14 +1727,12 @@ body {
 			#footer {
 				padding: 4em 3em 2em 3em ;
 				display: block;
-				margin: 0 0 3em 0;
 				width: 100%;
 			}
 
 				#footer > * {
 					width: 100%;
 					margin-left: 0;
-					margin-bottom: 3em;
 				}
 		}
 
@@ -1768,7 +1765,7 @@ body {
 	#wrapper {
 		width: 64em;
 		max-width: calc(100% - 4em);
-		margin: 3rem auto;
+		margin: 3rem auto 1.5rem auto;
 	}
 
 		@media screen and (max-width: 480px) {
@@ -1809,6 +1806,7 @@ body {
 	background-color: #008080;
 	margin: 5px;
 	border-radius: 50px;
+  transition: all 0.4s ease;
 }
 
 @media screen and (max-width: 768px){
@@ -1840,17 +1838,16 @@ body {
   #nav ul {
     position: absolute;
     right: 0;
-    top: 4rem;
+    top: 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    width: 60%;
+    width: 0;
     background-color: rgba(247, 247, 247, 0.95);
     z-index: 1;
-    transform: translateX(110%);
-    transition: transform 0.5s ease-in;
+    transition: width 0.7s ease-in-out;
   }
 
   #nav.alt ul li, #nav ul li {
@@ -1873,10 +1870,19 @@ body {
     background-color: transparent;
   }
 
+  #nav ul li {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
 }
 
-.nav-active {
-  transform: translateX(0);
+#nav .nav-active {
+  width: 70%;
+}
+
+#nav .nav-li-active {
+  opacity: 1;
 }
 
 @keyframes navLinksFade {
@@ -1888,4 +1894,14 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.clicked .line1 {
+  transform: rotate(-45deg) translate(-5.7px, 7px);
+}
+.clicked .line2 {
+  opacity: 0;
+}
+.clicked .line3 {
+  transform: rotate(45deg) translate(-4.5px, -6px);
 }

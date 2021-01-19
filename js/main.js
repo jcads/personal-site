@@ -1,6 +1,38 @@
 (function($) {
 
 
+  const $burger = $(".burger");
+  const $navLinks = $("#nav ul");
+  const $links = $("nav ul li");
+
+  $burger.click(() => {
+    $navLinks.toggleClass("nav-active");
+    
+    $links.each((idx, link) => {
+      if ($(link)[0].style.animation) {
+        $(link).css("animation", "");
+      } else {
+        $(link).css("animation", `navLinksFade 0.7s ease forwards ${idx / 7+0.2}s`);
+      }
+    });
+
+    console.log(Boolean($links[0].classList.value))
+    if (!($links[0].classList.value)) {
+      setTimeout(() => {
+        $links.toggleClass("nav-li-active");
+      }, 700);
+    } else {
+      setTimeout(() => {
+        $links.toggleClass("nav-li-active");
+      }, 150);
+    }
+
+    // burger animation
+    $burger.toggleClass("clicked");
+  });
+
+
+
 	var	$window = $(window),
 		$body = $('body'),
 		$main = $('#main');
@@ -122,6 +154,5 @@
 		});
 
 })(jQuery);
- console.log("test")
 
 
